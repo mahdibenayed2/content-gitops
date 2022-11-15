@@ -23,6 +23,6 @@ jobs:
     - name: Build & Push Image
       run: |
         cd ./python
-        echo "${{ secrets.DOCKERPW }}" | docker login -u "mahdibenayed1" --password-stdin
+        docker login --username=mahdibenayed1 --password=${{ secrets.DOCKERPW }}
         docker image build -t mahdibenayed1/gitops:hellov1.0 .
         docker push mahdibenayed1/gitops:hellov1.0
